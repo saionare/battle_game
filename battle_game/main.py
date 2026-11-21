@@ -1,3 +1,4 @@
+import random
 from factory import CharacterFactory
 from game import Game
 
@@ -13,6 +14,7 @@ game.add_character(orc)
 game.add_character(elf)
 game.add_character(dwarf)
 game.add_character(human)
+random.shuffle(game.characters)
 
 print("УЧАСТНИКИ")
 
@@ -40,7 +42,7 @@ while len([c for c in characters if c.is_alive()]) > 1:
         if not enemies:
             break
 
-        enemy = enemies[0]
+        enemy = random.choice(enemies)
 
         attacker.attack(enemy)
 
